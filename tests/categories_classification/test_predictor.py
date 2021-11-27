@@ -22,15 +22,15 @@ def test_predict_products_success(read_csv_mck,
                                   get_model_input_names_mck,
                                   load_model_mck,
                                   dummy_model,
-                                  inference_dataset):
+                                  inference_dataset,
+                                  test_spark_session):
     # Given
     with tempfile.TemporaryDirectory() as tmpdirname:
         client_id = "some_client"
         get_model_input_names_mck.return_value = ["f0", "f1"]
         get_latest_model_version_mck.return_value = ModelVersion(name="", version=1, creation_timestamp="some_ts")
         # Mock read_csv to use custom inference dataset.
-        spark = SparkSession.builder.getOrCreate()
-        read_csv_mck.return_value = spark.createDataFrame(inference_dataset)
+        read_csv_mck.return_value = test_spark_session.createDataFrame(inference_dataset)
         # Mock joblib load to use custom model
         load_model_mck.return_value = dummy_model
         # Mock get_products_categories_dir to write predictions to temporary directory.
@@ -40,5 +40,5 @@ def test_predict_products_success(read_csv_mck,
         predict_categories(client_id, today().isoformat())
 
         # Then
-        prediction_results = spark.read.parquet(join(tmpdirname, "predictions")).toPandas()
+        prediction_results = test_spark_session.read.parquet(join(tmpdirname, "predictions")).toPandas()
         assert len(prediction_results) == 4

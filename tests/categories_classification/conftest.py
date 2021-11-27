@@ -1,5 +1,6 @@
 import numpy as np
 from pandas import DataFrame
+from pyspark.sql import SparkSession
 from pytest import fixture
 from sklearn.base import BaseEstimator, ClassifierMixin
 from sklearn.datasets import make_classification
@@ -44,3 +45,17 @@ def inference_dataset():
         "f0": [0.1, 0.5],
         "f1": [0.2, 0.3]
     })
+
+
+@fixture(scope="session")
+def test_spark_session():
+    session = SparkSession.builder \
+        .master("local[1]") \
+        .config("spark.sql.shuffle.partitions", "1") \
+        .config("spark.driver.memory", "512m") \
+        .config("spark.executor.memory", "512m") \
+        .config("spark.python.worker.memory", "64m") \
+        .getOrCreate()
+    session.sparkContext.setLogLevel("WARN")
+    yield session
+    session.stop()
