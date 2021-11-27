@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pyspark = "*"
+pyarrow = "*"
+scikit-learn = "*"
+pandas = "*"
+click = "*"
+mlflow = "*"
+matplotlib = "*"
+
+[dev-packages]
+pytest = "*"
+jupyter = "*"
+pylint = "*"
+pytest-cov = "*"
+
+[requires]
+python_version = "3.7"

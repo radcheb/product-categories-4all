@@ -1,0 +1,90 @@
+client_0:
+    features:
+        - f0
+        - f1
+        - f2
+        - f3
+        - f4
+    params:
+        n_estimators: 300
+client_1:
+    features:
+        - f0
+        - f1
+        - f2
+        - f3
+        - f4
+    params:
+        n_estimators: 100
+client_2:
+    features:
+        - f0
+        - f1
+        - f2
+        - f3
+        - f4
+    params:
+        n_estimators: 50
+client_3:
+    features:
+        - f0
+        - f1
+        - f2
+        - f3
+        - f4
+    params:
+        n_estimators: 100
+client_4:
+    features:
+        - f0
+        - f1
+        - f2
+        - f3
+        - f4
+    params:
+        n_estimators: 100
+client_5:
+    features:
+        - f0
+        - f1
+        - f2
+        - f3
+        - f4
+    params:
+        n_estimators: 100
+client_6:
+    features:
+        - f0
+        - f1
+        - f2
+        - f3
+        - f4
+    params:
+        n_estimators: 100
+client_7:
+    features:
+        - f0
+        - f1
+        - f2
+        - f3
+        - f4
+    params:
+        n_estimators: 100
+client_8:
+    features:
+        - f0
+        - f1
+        - f2
+        - f3
+        - f4
+    params:
+        n_estimators: 100
+client_9:
+    features:
+        - f0
+        - f1
+        - f2
+        - f3
+        - f4
+    params:
+        n_estimators: 100
