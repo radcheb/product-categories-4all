@@ -2,6 +2,8 @@
 
 **The steps to reproduce training and inference are in the end of this file, sorry for the long explanation.**
 
+![example workflow](https://github.com/radcheb/product-categories-4all/actions/workflows/workflow.yaml/badge.svg)
+
 ## Problem scope
 
 We want to create a full product categorization stack for multiple clients.
